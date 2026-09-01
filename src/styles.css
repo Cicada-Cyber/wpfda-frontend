@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@theme {
+  /* WPFDA brand placeholders — refine when branding is finalised */
+  --color-brand: #0e7a3d;
+  --color-brand-dark: #0a5c2e;
+  --color-accent: #f2b705;
+}
