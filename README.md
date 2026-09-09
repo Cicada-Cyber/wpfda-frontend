@@ -27,3 +27,20 @@ npm run preview  # serve the production build locally
 docker build -t wpfda-frontend .
 docker run -p 8080:80 wpfda-frontend
 ```
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the process and contributor licence terms,
+and [AGENTS.md](AGENTS.md) for code conventions. A Dev Container is included, so opening
+the repo in VS Code or Codespaces gives a ready environment.
+
+Before opening a pull request, run the same checks CI runs:
+
+```sh
+npm run lint
+npm run format:check
+npm run build
+npm audit --audit-level=high
+```
+
+Security issues: see [SECURITY.md](SECURITY.md). Licence: proprietary, see [LICENSE](LICENSE).

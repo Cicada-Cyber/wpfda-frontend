@@ -1,0 +1,43 @@
+name: Bug report
+description: Something in the WPFDA site or portals is broken
+title: 'Bug: '
+labels: [bug]
+body:
+  - type: checkboxes
+    attributes:
+      label: Before you start
+      options:
+        - label: I have searched existing issues for this problem
+          required: true
+        - label: Screenshots and logs contain no personal information about members
+          required: true
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to …
+        2. Click …
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Page URL
+      placeholder: https://…/clubs
+  - type: input
+    attributes:
+      label: Browser and device
+      placeholder: Chrome 140 on Android 16
+  - type: dropdown
+    attributes:
+      label: Which part of the site?
+      options:
+        - Public site
+        - Club portal
+        - Admin portal
+        - Not sure
