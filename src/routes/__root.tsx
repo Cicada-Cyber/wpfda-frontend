@@ -1,45 +1,28 @@
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 export const Route = createRootRoute({
   component: RootLayout,
+  notFoundComponent: NotFound,
 })
-
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/news', label: 'News' },
-  { to: '/calendar', label: 'Calendar' },
-  { to: '/clubs', label: 'Clubs' },
-] as const
 
 function RootLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-gray-900">
-      <header className="bg-brand text-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link to="/" className="text-lg font-bold tracking-wide">
-            WPFDA
-          </Link>
-          <nav className="flex gap-4 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="hover:text-accent [&.active]:text-accent [&.active]:font-semibold"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
-        <Outlet />
-      </main>
-      <footer className="border-t border-gray-200 py-6 text-center text-sm text-gray-500">
-        Western Province Flying Disc Association · affiliated to SAFDA
-      </footer>
+    <>
+      <Outlet />
       {import.meta.env.DEV && <TanStackRouterDevtools />}
+    </>
+  )
+}
+
+function NotFound() {
+  return (
+    <div className="mx-auto max-w-2xl px-4 py-24 text-center">
+      <h1 className="text-brand text-3xl font-bold">Page not found</h1>
+      <p className="mt-2 text-gray-600">That page doesn't exist or has moved.</p>
+      <a href="/" className="text-brand-blue mt-6 inline-block font-semibold hover:underline">
+        Back to the home page
+      </a>
     </div>
   )
 }

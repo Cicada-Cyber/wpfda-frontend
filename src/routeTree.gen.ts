@@ -9,104 +9,515 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CalendarIndexRouteImport } from './routes/calendar/index'
-import { Route as ClubsIndexRouteImport } from './routes/clubs/index'
-import { Route as NewsIndexRouteImport } from './routes/news/index'
+import { Route as PublicRouteImport } from './routes/_public'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as PortalRouteRouteImport } from './routes/portal/route'
+import { Route as PublicIndexRouteImport } from './routes/_public/index'
+import { Route as PublicContactRouteImport } from './routes/_public/contact'
+import { Route as PublicPickupRouteImport } from './routes/_public/pickup'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as PortalIndexRouteImport } from './routes/portal/index'
+import { Route as PublicAboutIndexRouteImport } from './routes/_public/about/index'
+import { Route as PublicAboutCommitteeRouteImport } from './routes/_public/about/committee'
+import { Route as PublicAboutDevelopmentRouteImport } from './routes/_public/about/development'
+import { Route as PublicAboutMerchRouteImport } from './routes/_public/about/merch'
+import { Route as PublicAboutPoliciesRouteImport } from './routes/_public/about/policies'
+import { Route as PublicCalendarIndexRouteImport } from './routes/_public/calendar/index'
+import { Route as PublicClubsIndexRouteImport } from './routes/_public/clubs/index'
+import { Route as PublicClubsSlugRouteImport } from './routes/_public/clubs/$slug'
+import { Route as PublicLeagueIndexRouteImport } from './routes/_public/league/index'
+import { Route as PublicLeagueStandingsRouteImport } from './routes/_public/league/standings'
+import { Route as PublicNewsIndexRouteImport } from './routes/_public/news/index'
+import { Route as PublicUltimateIndexRouteImport } from './routes/_public/ultimate/index'
+import { Route as PublicUltimateBasicsRouteImport } from './routes/_public/ultimate/basics'
+import { Route as PublicUltimateRulesRouteImport } from './routes/_public/ultimate/rules'
 
-const IndexRoute = IndexRouteImport.update({
+const PublicRoute = PublicRouteImport.update({
+  id: '/_public',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRouteRoute = PortalRouteRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => PublicRoute,
 } as any)
-const CalendarIndexRoute = CalendarIndexRouteImport.update({
+const PublicContactRoute = PublicContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicPickupRoute = PublicPickupRouteImport.update({
+  id: '/pickup',
+  path: '/pickup',
+  getParentRoute: () => PublicRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PublicAboutIndexRoute = PublicAboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicAboutCommitteeRoute = PublicAboutCommitteeRouteImport.update({
+  id: '/about/committee',
+  path: '/about/committee',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicAboutDevelopmentRoute = PublicAboutDevelopmentRouteImport.update({
+  id: '/about/development',
+  path: '/about/development',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicAboutMerchRoute = PublicAboutMerchRouteImport.update({
+  id: '/about/merch',
+  path: '/about/merch',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicAboutPoliciesRoute = PublicAboutPoliciesRouteImport.update({
+  id: '/about/policies',
+  path: '/about/policies',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicCalendarIndexRoute = PublicCalendarIndexRouteImport.update({
   id: '/calendar/',
   path: '/calendar/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => PublicRoute,
 } as any)
-const ClubsIndexRoute = ClubsIndexRouteImport.update({
+const PublicClubsIndexRoute = PublicClubsIndexRouteImport.update({
   id: '/clubs/',
   path: '/clubs/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => PublicRoute,
 } as any)
-const NewsIndexRoute = NewsIndexRouteImport.update({
+const PublicClubsSlugRoute = PublicClubsSlugRouteImport.update({
+  id: '/clubs/$slug',
+  path: '/clubs/$slug',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicLeagueIndexRoute = PublicLeagueIndexRouteImport.update({
+  id: '/league/',
+  path: '/league/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicLeagueStandingsRoute = PublicLeagueStandingsRouteImport.update({
+  id: '/league/standings',
+  path: '/league/standings',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicNewsIndexRoute = PublicNewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicUltimateIndexRoute = PublicUltimateIndexRouteImport.update({
+  id: '/ultimate/',
+  path: '/ultimate/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicUltimateBasicsRoute = PublicUltimateBasicsRouteImport.update({
+  id: '/ultimate/basics',
+  path: '/ultimate/basics',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicUltimateRulesRoute = PublicUltimateRulesRouteImport.update({
+  id: '/ultimate/rules',
+  path: '/ultimate/rules',
+  getParentRoute: () => PublicRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/calendar/': typeof CalendarIndexRoute
-  '/clubs/': typeof ClubsIndexRoute
-  '/news/': typeof NewsIndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/portal': typeof PortalRouteRouteWithChildren
+  '/': typeof PublicIndexRoute
+  '/contact': typeof PublicContactRoute
+  '/pickup': typeof PublicPickupRoute
+  '/admin/': typeof AdminIndexRoute
+  '/portal/': typeof PortalIndexRoute
+  '/about/committee': typeof PublicAboutCommitteeRoute
+  '/about/development': typeof PublicAboutDevelopmentRoute
+  '/about/merch': typeof PublicAboutMerchRoute
+  '/about/policies': typeof PublicAboutPoliciesRoute
+  '/clubs/$slug': typeof PublicClubsSlugRoute
+  '/league/standings': typeof PublicLeagueStandingsRoute
+  '/ultimate/basics': typeof PublicUltimateBasicsRoute
+  '/ultimate/rules': typeof PublicUltimateRulesRoute
+  '/about/': typeof PublicAboutIndexRoute
+  '/calendar/': typeof PublicCalendarIndexRoute
+  '/clubs/': typeof PublicClubsIndexRoute
+  '/league/': typeof PublicLeagueIndexRoute
+  '/news/': typeof PublicNewsIndexRoute
+  '/ultimate/': typeof PublicUltimateIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/calendar': typeof CalendarIndexRoute
-  '/clubs': typeof ClubsIndexRoute
-  '/news': typeof NewsIndexRoute
+  '/contact': typeof PublicContactRoute
+  '/pickup': typeof PublicPickupRoute
+  '/': typeof PublicIndexRoute
+  '/admin': typeof AdminIndexRoute
+  '/portal': typeof PortalIndexRoute
+  '/about/committee': typeof PublicAboutCommitteeRoute
+  '/about/development': typeof PublicAboutDevelopmentRoute
+  '/about/merch': typeof PublicAboutMerchRoute
+  '/about/policies': typeof PublicAboutPoliciesRoute
+  '/clubs/$slug': typeof PublicClubsSlugRoute
+  '/league/standings': typeof PublicLeagueStandingsRoute
+  '/ultimate/basics': typeof PublicUltimateBasicsRoute
+  '/ultimate/rules': typeof PublicUltimateRulesRoute
+  '/about': typeof PublicAboutIndexRoute
+  '/calendar': typeof PublicCalendarIndexRoute
+  '/clubs': typeof PublicClubsIndexRoute
+  '/league': typeof PublicLeagueIndexRoute
+  '/news': typeof PublicNewsIndexRoute
+  '/ultimate': typeof PublicUltimateIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/calendar/': typeof CalendarIndexRoute
-  '/clubs/': typeof ClubsIndexRoute
-  '/news/': typeof NewsIndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/portal': typeof PortalRouteRouteWithChildren
+  '/_public': typeof PublicRouteWithChildren
+  '/_public/contact': typeof PublicContactRoute
+  '/_public/pickup': typeof PublicPickupRoute
+  '/_public/': typeof PublicIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/portal/': typeof PortalIndexRoute
+  '/_public/about/committee': typeof PublicAboutCommitteeRoute
+  '/_public/about/development': typeof PublicAboutDevelopmentRoute
+  '/_public/about/merch': typeof PublicAboutMerchRoute
+  '/_public/about/policies': typeof PublicAboutPoliciesRoute
+  '/_public/clubs/$slug': typeof PublicClubsSlugRoute
+  '/_public/league/standings': typeof PublicLeagueStandingsRoute
+  '/_public/ultimate/basics': typeof PublicUltimateBasicsRoute
+  '/_public/ultimate/rules': typeof PublicUltimateRulesRoute
+  '/_public/about/': typeof PublicAboutIndexRoute
+  '/_public/calendar/': typeof PublicCalendarIndexRoute
+  '/_public/clubs/': typeof PublicClubsIndexRoute
+  '/_public/league/': typeof PublicLeagueIndexRoute
+  '/_public/news/': typeof PublicNewsIndexRoute
+  '/_public/ultimate/': typeof PublicUltimateIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calendar/' | '/clubs/' | '/news/'
+  fullPaths:
+    | '/admin'
+    | '/portal'
+    | '/'
+    | '/contact'
+    | '/pickup'
+    | '/admin/'
+    | '/portal/'
+    | '/about/committee'
+    | '/about/development'
+    | '/about/merch'
+    | '/about/policies'
+    | '/clubs/$slug'
+    | '/league/standings'
+    | '/ultimate/basics'
+    | '/ultimate/rules'
+    | '/about/'
+    | '/calendar/'
+    | '/clubs/'
+    | '/league/'
+    | '/news/'
+    | '/ultimate/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calendar' | '/clubs' | '/news'
-  id: '__root__' | '/' | '/calendar/' | '/clubs/' | '/news/'
+  to:
+    | '/contact'
+    | '/pickup'
+    | '/'
+    | '/admin'
+    | '/portal'
+    | '/about/committee'
+    | '/about/development'
+    | '/about/merch'
+    | '/about/policies'
+    | '/clubs/$slug'
+    | '/league/standings'
+    | '/ultimate/basics'
+    | '/ultimate/rules'
+    | '/about'
+    | '/calendar'
+    | '/clubs'
+    | '/league'
+    | '/news'
+    | '/ultimate'
+  id:
+    | '__root__'
+    | '/admin'
+    | '/portal'
+    | '/_public'
+    | '/_public/contact'
+    | '/_public/pickup'
+    | '/_public/'
+    | '/admin/'
+    | '/portal/'
+    | '/_public/about/committee'
+    | '/_public/about/development'
+    | '/_public/about/merch'
+    | '/_public/about/policies'
+    | '/_public/clubs/$slug'
+    | '/_public/league/standings'
+    | '/_public/ultimate/basics'
+    | '/_public/ultimate/rules'
+    | '/_public/about/'
+    | '/_public/calendar/'
+    | '/_public/clubs/'
+    | '/_public/league/'
+    | '/_public/news/'
+    | '/_public/ultimate/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  CalendarIndexRoute: typeof CalendarIndexRoute
-  ClubsIndexRoute: typeof ClubsIndexRoute
-  NewsIndexRoute: typeof NewsIndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  PortalRouteRoute: typeof PortalRouteRouteWithChildren
+  PublicRoute: typeof PublicRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_public': {
+      id: '/_public'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof PublicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_public/': {
+      id: '/_public/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof PublicIndexRouteImport
+      parentRoute: typeof PublicRoute
     }
-    '/calendar/': {
-      id: '/calendar/'
+    '/_public/contact': {
+      id: '/_public/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof PublicContactRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/pickup': {
+      id: '/_public/pickup'
+      path: '/pickup'
+      fullPath: '/pickup'
+      preLoaderRoute: typeof PublicPickupRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/portal/': {
+      id: '/portal/'
+      path: '/'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_public/about/': {
+      id: '/_public/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof PublicAboutIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/about/committee': {
+      id: '/_public/about/committee'
+      path: '/about/committee'
+      fullPath: '/about/committee'
+      preLoaderRoute: typeof PublicAboutCommitteeRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/about/development': {
+      id: '/_public/about/development'
+      path: '/about/development'
+      fullPath: '/about/development'
+      preLoaderRoute: typeof PublicAboutDevelopmentRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/about/merch': {
+      id: '/_public/about/merch'
+      path: '/about/merch'
+      fullPath: '/about/merch'
+      preLoaderRoute: typeof PublicAboutMerchRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/about/policies': {
+      id: '/_public/about/policies'
+      path: '/about/policies'
+      fullPath: '/about/policies'
+      preLoaderRoute: typeof PublicAboutPoliciesRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/calendar/': {
+      id: '/_public/calendar/'
       path: '/calendar'
       fullPath: '/calendar/'
-      preLoaderRoute: typeof CalendarIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof PublicCalendarIndexRouteImport
+      parentRoute: typeof PublicRoute
     }
-    '/clubs/': {
-      id: '/clubs/'
+    '/_public/clubs/': {
+      id: '/_public/clubs/'
       path: '/clubs'
       fullPath: '/clubs/'
-      preLoaderRoute: typeof ClubsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof PublicClubsIndexRouteImport
+      parentRoute: typeof PublicRoute
     }
-    '/news/': {
-      id: '/news/'
+    '/_public/clubs/$slug': {
+      id: '/_public/clubs/$slug'
+      path: '/clubs/$slug'
+      fullPath: '/clubs/$slug'
+      preLoaderRoute: typeof PublicClubsSlugRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/league/': {
+      id: '/_public/league/'
+      path: '/league'
+      fullPath: '/league/'
+      preLoaderRoute: typeof PublicLeagueIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/league/standings': {
+      id: '/_public/league/standings'
+      path: '/league/standings'
+      fullPath: '/league/standings'
+      preLoaderRoute: typeof PublicLeagueStandingsRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/news/': {
+      id: '/_public/news/'
       path: '/news'
       fullPath: '/news/'
-      preLoaderRoute: typeof NewsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof PublicNewsIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/ultimate/': {
+      id: '/_public/ultimate/'
+      path: '/ultimate'
+      fullPath: '/ultimate/'
+      preLoaderRoute: typeof PublicUltimateIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/ultimate/basics': {
+      id: '/_public/ultimate/basics'
+      path: '/ultimate/basics'
+      fullPath: '/ultimate/basics'
+      preLoaderRoute: typeof PublicUltimateBasicsRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/ultimate/rules': {
+      id: '/_public/ultimate/rules'
+      path: '/ultimate/rules'
+      fullPath: '/ultimate/rules'
+      preLoaderRoute: typeof PublicUltimateRulesRouteImport
+      parentRoute: typeof PublicRoute
     }
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
+interface PortalRouteRouteChildren {
+  PortalIndexRoute: typeof PortalIndexRoute
+}
+
+const PortalRouteRouteChildren: PortalRouteRouteChildren = {
+  PortalIndexRoute: PortalIndexRoute,
+}
+
+const PortalRouteRouteWithChildren = PortalRouteRoute._addFileChildren(
+  PortalRouteRouteChildren,
+)
+
+interface PublicRouteChildren {
+  PublicContactRoute: typeof PublicContactRoute
+  PublicPickupRoute: typeof PublicPickupRoute
+  PublicIndexRoute: typeof PublicIndexRoute
+  PublicAboutCommitteeRoute: typeof PublicAboutCommitteeRoute
+  PublicAboutDevelopmentRoute: typeof PublicAboutDevelopmentRoute
+  PublicAboutMerchRoute: typeof PublicAboutMerchRoute
+  PublicAboutPoliciesRoute: typeof PublicAboutPoliciesRoute
+  PublicClubsSlugRoute: typeof PublicClubsSlugRoute
+  PublicLeagueStandingsRoute: typeof PublicLeagueStandingsRoute
+  PublicUltimateBasicsRoute: typeof PublicUltimateBasicsRoute
+  PublicUltimateRulesRoute: typeof PublicUltimateRulesRoute
+  PublicAboutIndexRoute: typeof PublicAboutIndexRoute
+  PublicCalendarIndexRoute: typeof PublicCalendarIndexRoute
+  PublicClubsIndexRoute: typeof PublicClubsIndexRoute
+  PublicLeagueIndexRoute: typeof PublicLeagueIndexRoute
+  PublicNewsIndexRoute: typeof PublicNewsIndexRoute
+  PublicUltimateIndexRoute: typeof PublicUltimateIndexRoute
+}
+
+const PublicRouteChildren: PublicRouteChildren = {
+  PublicContactRoute: PublicContactRoute,
+  PublicPickupRoute: PublicPickupRoute,
+  PublicIndexRoute: PublicIndexRoute,
+  PublicAboutCommitteeRoute: PublicAboutCommitteeRoute,
+  PublicAboutDevelopmentRoute: PublicAboutDevelopmentRoute,
+  PublicAboutMerchRoute: PublicAboutMerchRoute,
+  PublicAboutPoliciesRoute: PublicAboutPoliciesRoute,
+  PublicClubsSlugRoute: PublicClubsSlugRoute,
+  PublicLeagueStandingsRoute: PublicLeagueStandingsRoute,
+  PublicUltimateBasicsRoute: PublicUltimateBasicsRoute,
+  PublicUltimateRulesRoute: PublicUltimateRulesRoute,
+  PublicAboutIndexRoute: PublicAboutIndexRoute,
+  PublicCalendarIndexRoute: PublicCalendarIndexRoute,
+  PublicClubsIndexRoute: PublicClubsIndexRoute,
+  PublicLeagueIndexRoute: PublicLeagueIndexRoute,
+  PublicNewsIndexRoute: PublicNewsIndexRoute,
+  PublicUltimateIndexRoute: PublicUltimateIndexRoute,
+}
+
+const PublicRouteWithChildren =
+  PublicRoute._addFileChildren(PublicRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  CalendarIndexRoute: CalendarIndexRoute,
-  ClubsIndexRoute: ClubsIndexRoute,
-  NewsIndexRoute: NewsIndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  PortalRouteRoute: PortalRouteRouteWithChildren,
+  PublicRoute: PublicRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
